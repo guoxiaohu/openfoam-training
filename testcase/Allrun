@@ -1,0 +1,6 @@
+#!/bin/bash
+
+blockMesh > log.blockMesh
+decomposePar > log.decomposePar
+mpirun -np 2 Pstream_test -parallel
+rm -r processor* 2>/dev/null
