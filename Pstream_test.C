@@ -5,8 +5,7 @@ int main(int argc, char* argv[]){
     #include "setRootCase.H"
     #include "createTime.H"
     #include "createMesh.H"
-    argList::noCheckProcessorDirectories();
-    #include "setRootCase.H"
+  //  argList::noCheckProcessorDirectories();
     if(!Pstream::parRun()){
         FatalErrorInFunction
         << ": This utility can only be run parallel"
