@@ -58,6 +58,7 @@ int main(int argc, char* argv[]){
     forAll(mesh.boundary(),patchI)
         Pout << "Patch " << patchI << " named " << mesh.boundary()[patchI].name() << endl;
 
+    #include "createFields.H"
 }
 
     
