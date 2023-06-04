@@ -59,6 +59,25 @@ int main(int argc, char* argv[]){
         Pout << "Patch " << patchI << " named " << mesh.boundary()[patchI].name() << endl;
 
     #include "createFields.H"
-}
+
+    forAll( p , icell  )
+          p[icell] = Pstream::myProcNo();
+
+    forAll ( mesh.boundaryMesh() , ipatch ) {
+       word BCtype = mesh.boundaryMesh().types()[ipatch];
+       const UList<label> &bfaceCells =
+         mesh.boundaryMesh()[ipatch].faceCells();
+       if( BCtype == "processor" ) {
+           p.correctBoundaryConditions();
+           scalarField exchange =
+                      p.boundaryField()[ipatch].
+                        patchNeighbourField();
+           forAll( bfaceCells , icell ) {
+              p[ bfaceCells[icell] ] = exchange[icell];
+              std::cout << exchange[icell] << "\n";
+           }
+       }
+
+    }
 
     
