@@ -1,3 +1,5 @@
+scalar rho_inf = 1.0;
+
 Info << "Reading transportProperties\n" << endl;
 
 IOdictionary transportProperties
