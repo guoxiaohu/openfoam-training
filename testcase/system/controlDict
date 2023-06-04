@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     Pstream_test;
+application     pstreamTest;
 
 startFrom       startTime;
 
